@@ -1,0 +1,36 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ClientUser {
+  id: Int!
+  username: String!
+}
+
+type Mutation {
+  refresh: SignInOutput!
+  signIn(authCredentials: SignInInput!): SignInOutput!
+  signUp(authCredentials: SignUpInput!): ClientUser!
+}
+
+type Query {
+  checkToken: ClientUser!
+  user(username: String!): ClientUser!
+  users: [ClientUser!]!
+}
+
+input SignInInput {
+  password: String!
+  username: String!
+}
+
+type SignInOutput {
+  accessToken: String!
+  refreshToken: String!
+  user: ClientUser!
+}
+
+input SignUpInput {
+  password: String!
+  username: String!
+}
